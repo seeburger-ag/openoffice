@@ -25,25 +25,47 @@
 #include <jni.h>
 /* Header for class org_openoffice_OpenOffice */
 
-#ifndef _Included_NativeView
-#define _Included_NativeView
+#ifndef _Included_ag_ion_bion_officelayer_NativeView
+#define _Included_ag_ion_bion_officelayer_NativeView
 #ifdef __cplusplus
 extern "C" {
 #endif
+#undef ag_ion_bion_officelayer_NativeView_FOCUS_TRAVERSABLE_UNKNOWN
+#define ag_ion_bion_officelayer_NativeView_FOCUS_TRAVERSABLE_UNKNOWN 0L
+#undef ag_ion_bion_officelayer_NativeView_FOCUS_TRAVERSABLE_DEFAULT
+#define ag_ion_bion_officelayer_NativeView_FOCUS_TRAVERSABLE_DEFAULT 1L
+#undef ag_ion_bion_officelayer_NativeView_FOCUS_TRAVERSABLE_SET
+#define ag_ion_bion_officelayer_NativeView_FOCUS_TRAVERSABLE_SET 2L
+#undef ag_ion_bion_officelayer_NativeView_TOP_ALIGNMENT
+#define ag_ion_bion_officelayer_NativeView_TOP_ALIGNMENT 0.0f
+#undef ag_ion_bion_officelayer_NativeView_CENTER_ALIGNMENT
+#define ag_ion_bion_officelayer_NativeView_CENTER_ALIGNMENT 0.5f
+#undef ag_ion_bion_officelayer_NativeView_BOTTOM_ALIGNMENT
+#define ag_ion_bion_officelayer_NativeView_BOTTOM_ALIGNMENT 1.0f
+#undef ag_ion_bion_officelayer_NativeView_LEFT_ALIGNMENT
+#define ag_ion_bion_officelayer_NativeView_LEFT_ALIGNMENT 0.0f
+#undef ag_ion_bion_officelayer_NativeView_RIGHT_ALIGNMENT
+#define ag_ion_bion_officelayer_NativeView_RIGHT_ALIGNMENT 1.0f
+#undef ag_ion_bion_officelayer_NativeView_serialVersionUID
+#define ag_ion_bion_officelayer_NativeView_serialVersionUID -7644114512714619750LL
+#undef ag_ion_bion_officelayer_NativeView_serialVersionUID
+#define ag_ion_bion_officelayer_NativeView_serialVersionUID -2284879212465893870LL
+#undef ag_ion_bion_officelayer_NativeView_serialVersionUID
+#define ag_ion_bion_officelayer_NativeView_serialVersionUID 744155902373436284LL
 /*
- * Class:     org_openoffice_OpenOffice
+ * Class:     ag_ion_bion_officelayer_NativeView
  * Method:    getNativeWindowSystemType
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_NativeView_getNativeWindowSystemType
+JNIEXPORT jint JNICALL Java_ag_ion_bion_officelayer_NativeView_getNativeWindowSystemType
   (JNIEnv *, jobject);
 
 /*
- * Class:     org_openoffice_OpenOffice
+ * Class:     ag_ion_bion_officelayer_NativeView
  * Method:    getNativeWindow
  * Signature: ()J
  */
-JNIEXPORT jlong JNICALL Java_NativeView_getNativeWindow
+JNIEXPORT jlong JNICALL Java_ag_ion_bion_officelayer_NativeView_getNativeWindow
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus
