@@ -25,7 +25,7 @@
 
 #include "jawt.h"
 #include "jawt_md.h"
-#include "NativeView.h"
+#include "nativeview.h"
 
 #define MY_ASSERT(X,S) if (!X) { fprintf(stderr,"%s\n",S); return 0L;}
 
@@ -48,7 +48,7 @@ static LRESULT APIENTRY NativeViewWndProc( HWND , UINT , WPARAM , LPARAM );
  * Signature  : ()I
  * Description: returns an identifier for the current operating system
  */
-JNIEXPORT jint JNICALL Java_NativeView_getNativeWindowSystemType
+JNIEXPORT jint JNICALL Java_ag_ion_bion_officelayer_NativeView_getNativeWindowSystemType
   (JNIEnv * env, jobject obj_this)
 {
     return (SYSTEM_WIN32);
@@ -61,7 +61,7 @@ JNIEXPORT jint JNICALL Java_NativeView_getNativeWindowSystemType
  * Signature  : ()J
  * Description: returns the native systemw window handle of this object
  */
-JNIEXPORT jlong JNICALL Java_NativeView_getNativeWindow
+JNIEXPORT jint JNICALL Java_ag_ion_bion_officelayer_NativeView_getNativeWindow
   (JNIEnv * env, jobject obj_this)
 {
     jboolean                      result  ;
@@ -110,7 +110,10 @@ JNIEXPORT jlong JNICALL Java_NativeView_getNativeWindow
      */
     if (GetProp( hWnd, OLD_PROC_KEY )==0)
     {
-        hFuncPtr = SetWindowLong( hWnd, GWL_WNDPROC, (DWORD)NativeViewWndProc );
+	/* Use SetWindowLongPtr with GWLP_WNDPROC instead SetWindowLong,
+    	   due the pointer function isn't working on Win64 and GWL_WNDPROC is available only on Win32
+        */    	   
+        hFuncPtr = SetWindowLongPtr( hWnd, GWLP_WNDPROC, (DWORD)NativeViewWndProc );
         SetProp( hWnd, OLD_PROC_KEY, (HANDLE)hFuncPtr );
     }
 
